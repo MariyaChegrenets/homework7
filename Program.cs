@@ -47,6 +47,7 @@ void Task50()  //(2)
     Console.WriteLine("Введите m и n:");
     int m = Convert.ToInt32(Console.ReadLine());
     int n = Convert.ToInt16(Console.ReadLine());
+    bool flag = false;  // инициируем переменную flag, которая хранит в себе значение false, чтобы сделать проверку вывода
     int [,] array2d = new int[m,n];          
     for(int i=0; i<m; i++)
     {
@@ -56,18 +57,22 @@ void Task50()  //(2)
             Console.Write($"{array2d[i,j]} ");          
         }
         Console.WriteLine();
-    }    
+    }
     Console.Write("Введите число: ");
-    int number = Convert.ToInt32(Console.ReadLine());
-       for (int i=0; i<m; i++)
+    int number = Convert.ToInt32(Console.ReadLine());  
+    for (int i = 0; i < m; i++)
     {
-       for(int j=0; j<n; j++) 
-       {
-        if(array2d[i,j] == number)
-            Console.WriteLine($"{i},{j}");                     
-       }
-    } 
-    Console.WriteLine("Такого числа в массиве нет");         
+        for (int j = 0; j < n; j++)
+        {
+            if (array2d[i,j] == number)
+            {
+                Console.WriteLine($"{i},{j}"); 
+                flag = true; 
+            }      
+        }    
+    }   
+        if (flag == false) 
+        Console.WriteLine("Такого числа в массиве нет");
 }    
 
 void Task52()  //(3)
